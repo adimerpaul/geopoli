@@ -110,6 +110,19 @@
         }
 
     });
+    socket.on('chat message', function(msg){
+        let latlgn=msg.split('/');
+        // map.removeLayer(moto1);
+        // moto1=new L.marker([latlgn[0], latlgn[1]],{icon:myIcon}).addTo(map);
+        console.log(list);
+        const index=list.findIndex(item=>item.name===latlgn[2]);
+        console.log(index);
+        if (index==-1){
+            list.push({name:latlgn[2],lat:latlgn[0],lng:latlgn[1]});
+        }else{
+            list[index]={name:latlgn[2],lat:latlgn[0],lng:latlgn[1]};
+        }
+    });
     var list=[{name:'a',lat:-17.9928,lng:-67.1307}, {name:'b',lat:-17.9929,lng:-67.1308}, {name:'c',lat:-17.9930,lng:-67.1309}, {name:'d',lat:-17.9931,lng:-67.1310}, {name:'e',lat:-17.9932,lng:-67.1311}];
     var count = 0,timer;
     var counter = function(){
@@ -138,19 +151,8 @@
     };
     counter();
 
-    socket.on('chat message', function(msg){
-        let latlgn=msg.split('/');
-        // map.removeLayer(moto1);
-        // moto1=new L.marker([latlgn[0], latlgn[1]],{icon:myIcon}).addTo(map);
-        console.log(latlgn);
-        const index=list.findIndex(item=>item.name===latlgn[2]);
-        console.log(index);
-        if (index!=-1){
-            list.push({name:latlgn[2],lat:latlgn[0],lng:latlgn[1]});
-        }else{
-            list[index]={name:latlgn[2],lat:latlgn[0],lng:latlgn[1]};
-        }
-    });
+
+
 
 
 
