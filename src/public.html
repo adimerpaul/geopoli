@@ -115,7 +115,7 @@
     var counter = function(){
         count++;
         if (count > 15) { count = 1; }
-        console.log(count);
+        // console.log(count);
 
         for(i=0;i<motor.length;i++) {
             map.removeLayer(motor[i]);
@@ -142,7 +142,9 @@
         let latlgn=msg.split('/');
         // map.removeLayer(moto1);
         // moto1=new L.marker([latlgn[0], latlgn[1]],{icon:myIcon}).addTo(map);
+        console.log(latlgn);
         const index=list.findIndex(item=>item.name===latlgn[2]);
+        console.log(index);
         if (index!=-1){
             list.push({name:latlgn[2],lat:latlgn[0],lng:latlgn[1]});
         }else{
