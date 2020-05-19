@@ -85,7 +85,7 @@
         milat=e.latlng.lat;
         milng=e.latlng.lng;
         L.marker(e.latlng,{icon:myHome}).addTo(map)
-            .bindPopup("Usted esta a " + radius + " metros de este punto").openPopup();
+            .bindPopup("Usted esta a " + radius.toFixed(2) + " metros de este punto").openPopup();
         L.circle(e.latlng, radius).addTo(map);
     }
 
