@@ -227,30 +227,31 @@
 
     $('#avisa').click(function (e) {
         Push.Permission.request();
-        Notification.requestPermission().then(res=>{
-            // console.log(res)
-            if (res!="granted"){
-                alert("Tienes que dar permiso de Notificacion!")
-            }else{
-                navigator.geolocation.getCurrentPosition(function () {
-                    // console.log('si')
-                    // alert("Te avisara cuando este cerca!")
-                    Push.create('Hi there!', {
-                        body: 'This is a notification.',
-                        icon: '/pedido.png',
-                        timeout: 8000,               // Timeout before notification closes automatically.
-                        vibrate: [100, 100, 100],    // An array of vibration pulses for mobile devices.
-                        onClick: function() {
-                            // Callback for when the notification is clicked.
-                            console.log(this);
-                        }
-                    });
-                }, function(error){
-                    // console.log('no')
-                    alert("Tienes que dar permiso de Ubicacion")
-                });
+        Push.create('Hi there!', {
+            body: 'This is a notification.',
+            icon: '/moto.png',
+            timeout: 8000,               // Timeout before notification closes automatically.
+            vibrate: [100, 100, 100],    // An array of vibration pulses for mobile devices.
+            onClick: function() {
+                // Callback for when the notification is clicked.
+                console.log(this);
             }
         });
+        // Notification.requestPermission().then(res=>{
+        //     // console.log(res)
+        //     if (res!="granted"){
+        //         alert("Tienes que dar permiso de Notificacion!")
+        //     }else{
+        //         navigator.geolocation.getCurrentPosition(function () {
+        //             // console.log('si')
+        //             // alert("Te avisara cuando este cerca!")
+        //
+        //         }, function(error){
+        //             // console.log('no')
+        //             alert("Tienes que dar permiso de Ubicacion")
+        //         });
+        //     }
+        // });
 
         e.preventDefault();
     });
