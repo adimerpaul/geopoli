@@ -226,18 +226,26 @@
     }
 
     $('#avisa').click(function (e) {
-        navigator.vibrate(1000);
-        Push.Permission.request();
-        Push.create('Hi there!', {
-            body: 'This is a notification.',
-            icon: '/moto.png',
-            timeout: 8000,               // Timeout before notification closes automatically.
-            vibrate: [100, 100, 100],    // An array of vibration pulses for mobile devices.
-            onClick: function() {
-                // Callback for when the notification is clicked.
-                console.log(this);
-            }
-        });
+
+        var options = {
+            body: 'Do you like my body?',
+            vibrate: [200, 100, 200]
+        }
+
+        var n = new Notification('Test notification',options);
+
+        // navigator.vibrate(1000);
+        // Push.Permission.request();
+        // Push.create('Hi there!', {
+        //     body: 'This is a notification.',
+        //     icon: '/moto.png',
+        //     timeout: 8000,               // Timeout before notification closes automatically.
+        //     vibrate: [100, 100, 100],    // An array of vibration pulses for mobile devices.
+        //     onClick: function() {
+        //         // Callback for when the notification is clicked.
+        //         console.log(this);
+        //     }
+        // });
         // Notification.requestPermission().then(res=>{
         //     // console.log(res)
         //     if (res!="granted"){
