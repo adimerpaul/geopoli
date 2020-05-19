@@ -226,6 +226,7 @@
     }
 
     $('#avisa').click(function (e) {
+        navigator.vibrate(1000);
         Push.Permission.request();
         Push.create('Hi there!', {
             body: 'This is a notification.',
