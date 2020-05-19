@@ -152,11 +152,11 @@
 
     map.on('click', onMapClick);
 
-    socket.on('chat message', function(msg){
-        let latlgn=msg.split('/');
-        map.removeLayer(moto1);
-        moto1=new L.marker([latlgn[0], latlgn[1]],{icon:myIcon}).addTo(map);
-    });
+    // socket.on('chat message', function(msg){
+    //     let latlgn=msg.split('/');
+    //     map.removeLayer(moto1);
+    //     moto1=new L.marker([latlgn[0], latlgn[1]],{icon:myIcon}).addTo(map);
+    // });
 
 </script>
 
