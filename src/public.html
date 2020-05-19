@@ -208,16 +208,16 @@
                 motor.push(newPoint);
                 var distance = await map.distance([milat,milng] ,[list[i].lat,list[i].lng]);
                 // console.log(distance);
-                if (boolmsg==false && distance<=200){
-                    var title = "TU PEPIDO "
-                    var extra = {
-                        icon: "./moto.png",
-                        body: "Esta a menos de 200 mtrs"
-                    }
-                    // Lanzamos la notificación
-                    new Notification( title, extra);
-                    boolmsg=true;
-                }
+                // if (boolmsg==false && distance<=200){
+                //     var title = "TU PEPIDO "
+                //     var extra = {
+                //         icon: "./moto.png",
+                //         body: "Esta a menos de 200 mtrs"
+                //     }
+                //     // Lanzamos la notificación
+                //     new Notification( title, extra);
+                //     boolmsg=true;
+                // }
             }
             for(i=0;i<motor.length;i++) {
                 await map.addLayer(motor[i]);
