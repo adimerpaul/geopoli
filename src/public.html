@@ -188,7 +188,7 @@
     //     }, 2000);
     // };
     // counter();
-    var myVar = setInterval(myTimer ,5000);
+    var myVar = setInterval(myTimer ,2000);
     async function myTimer() {
         // var d = new Date();
         // alert(d);
@@ -196,10 +196,10 @@
             // alert(list.length);
             // if (count > 15) { count = 1; }
             // console.log(count);
-            for(i=0;i<motor.length;i++) {
+            for await (i=0;i<motor.length;i++) {
                 await map.removeLayer(motor[i]);
             }
-            // motor=[];
+            motor=[];
             for(let i = list.length -1; i >=0 ; i--) {
                 var newPoint=await new L.marker([list[i].lat,list[i].lng],{icon:myIcon})
                     .bindPopup("<b>Repartidor: </b>"+list[i].name)
@@ -219,7 +219,6 @@
                 // }
             }
             for(i=0;i<motor.length;i++) {
-
                 await map.addLayer(motor[i]);
             }
 
