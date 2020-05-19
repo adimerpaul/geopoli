@@ -152,6 +152,7 @@
     var count = 0,timer;
     var counter = function(){
         count++;
+        alert(motor.length);
         if (count > 15) { count = 1; }
         // console.log(count);
         for(i=0;i<motor.length;i++) {
@@ -177,7 +178,7 @@
             }
         }
         for(i=0;i<motor.length;i++) {
-            alert(motor.length)
+
             map.addLayer(motor[i]);
         }
 
