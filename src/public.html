@@ -233,6 +233,13 @@
                 navigator.geolocation.getCurrentPosition(function () {
                     // console.log('si')
                     alert("Te avisara cuando este cerca!")
+                    var title = "Xitrus"
+                    var extra = {
+                        icon: "http://xitrus.es/imgs/logo_claro.png",
+                        body: "Notificación de prueba en Xitrus"
+                    }
+                    // Lanzamos la notificación
+                    new Notification( title, extra)
                 }, function(error){
                     // console.log('no')
                     alert("Tienes que dar permiso de Ubicacion")
@@ -243,13 +250,7 @@
         e.preventDefault();
     });
 
-    // var title = "Xitrus"
-    // var extra = {
-    //     icon: "http://xitrus.es/imgs/logo_claro.png",
-    //     body: "Notificación de prueba en Xitrus"
-    // }
-    // // Lanzamos la notificación
-    // new Notification( title, extra)
+
 </script>
 
 
