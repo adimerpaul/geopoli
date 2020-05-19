@@ -189,7 +189,7 @@
     // };
     // counter();
     var myVar = setInterval(myTimer ,1000);
-    function myTimer() {
+    async function myTimer() {
         // var d = new Date();
         // alert(d);
             count++;
@@ -197,15 +197,15 @@
             if (count > 15) { count = 1; }
             // console.log(count);
             for(i=0;i<motor.length;i++) {
-                map.removeLayer(motor[i]);
+                await map.removeLayer(motor[i]);
             }
             motor=[];
             for(let i = list.length -1; i >=0 ; i--) {
-                var newPoint=new L.marker([list[i].lat,list[i].lng],{icon:myIcon})
+                var newPoint=await new L.marker([list[i].lat,list[i].lng],{icon:myIcon})
                     .bindPopup("<b>Repartidor: </b>"+list[i].name)
                     .openPopup();
                 motor.push(newPoint);
-                var distance = map.distance([milat,milng] ,[list[i].lat,list[i].lng]);
+                var distance = await map.distance([milat,milng] ,[list[i].lat,list[i].lng]);
                 // console.log(distance);
                 if (boolmsg==false && distance<=200){
                     var title = "TU PEPIDO "
@@ -220,7 +220,7 @@
             }
             for(i=0;i<motor.length;i++) {
 
-                map.addLayer(motor[i]);
+                await map.addLayer(motor[i]);
             }
 
     }
