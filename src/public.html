@@ -97,7 +97,7 @@
     // map.on('locationfound', onLocationFound);
     map.on('locationerror', onLocationError);
 
-    map.locate({setView: true, maxZoom: 16});
+    // map.locate({setView: true, maxZoom: 16});
 
 
     //
@@ -207,6 +207,11 @@
                     .bindPopup("<b>Repartidor: </b>"+list[i].name)
                     .openPopup();
                 motor.push(newPoint);
+
+
+
+
+
                 // var distance = await map.distance([milat,milng] ,[list[i].lat,list[i].lng]);
                 // console.log(distance);
                 // if (boolmsg==false && distance<=200){
@@ -222,6 +227,10 @@
             }
             for(i=0;i<motor.length;i++) {
                 await map.addLayer(motor[i]);
+                L.marker([-17.976961, -67.109801]).addTo(map)
+                    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+                    .openPopup();
+
             }
 
     }
