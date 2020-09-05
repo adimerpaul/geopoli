@@ -209,8 +209,8 @@
                 // motor.push(newPoint);
                 console.log(list)
 
-                var lamMarker=new L.marker([list[i].lat,list[i].lng])
-                    .bindPopup("<b>Pedido a nombre de:  </b>"+list[i].name)
+                var lamMarker=new L.marker([-17.976961, -67.109801])
+                    .bindPopup("<b>Pedido a nombre de:  aaa</b>")
                     .openPopup();
                 motor.push(lamMarker);
 
@@ -238,9 +238,9 @@
 
             }
 
-        for(i=0;i<marker.length;i++) {
-            map.addLayer(marker[i]);
-        }
+        // for(i=0;i<marker.length;i++) {
+        //     map.addLayer(marker[i]);
+        // }
 
     }
 
