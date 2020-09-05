@@ -136,7 +136,7 @@
 
     });
     socket.on('chat message', function(msg){
-        console.log(msg);
+        // console.log(msg);
         let latlgn=msg.split('/');
         // map.removeLayer(moto1);
         // moto1=new L.marker([latlgn[0], latlgn[1]],{icon:myIcon}).addTo(map);
@@ -193,7 +193,7 @@
     var myVar = setInterval(myTimer ,2000);
     async function myTimer() {
         // var d = new Date();
-        // alert(d);
+        alert(list);
             count++;
             // alert(list.length);
             // if (count > 15) { count = 1; }
