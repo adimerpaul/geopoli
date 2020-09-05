@@ -227,9 +227,9 @@
             }
             for(i=0;i<motor.length;i++) {
                 await map.addLayer(motor[i]);
-                map.eachLayer((layer) => {
-                    layer.remove();
-                });
+                // map.eachLayer((layer) => {
+                //     layer.remove();
+                // });
                 L.marker([-17.976961, -67.109801]).addTo(map)
                     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
                     .openPopup();
