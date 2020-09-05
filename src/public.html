@@ -207,15 +207,12 @@
                 //     .bindPopup("<b>Repartidor: </b>"+list[i].name)
                 //     .openPopup();
                 // motor.push(newPoint);
+                console.log(list)
 
                 var lamMarker=new L.marker([list[i].lat,list[i].lng])
                     .bindPopup("<b>Pedido a nombre de:  </b>"+list[i].name)
                     .openPopup();
                 motor.push(lamMarker);
-
-
-
-
 
                 // var distance = await map.distance([milat,milng] ,[list[i].lat,list[i].lng]);
                 // console.log(distance);
@@ -235,55 +232,55 @@
                 // map.eachLayer((layer) => {
                 //     layer.remove();
                 // });
-                L.marker([-17.976961, -67.109801]).addTo(map)
-                    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-                    .openPopup();
+                // L.marker([-17.976961, -67.109801]).addTo(map)
+                //     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+                //     .openPopup();
 
             }
 
     }
 
-    $('#avisa').click(function (e) {
-
-        Notification.requestPermission().then(function(result) {
-            // console.log(result);
-        });
-        var options = {
-            body: 'aa',
-        }
-
-        var n = new Notification('Emogotchi says',options);
-        setTimeout(n.close.bind(n), 5000);
-        // navigator.vibrate(1000);
-        // Push.Permission.request();
-        // Push.create('Hi there!', {
-        //     body: 'This is a notification.',
-        //     icon: '/moto.png',
-        //     timeout: 8000,               // Timeout before notification closes automatically.
-        //     vibrate: [100, 100, 100],    // An array of vibration pulses for mobile devices.
-        //     onClick: function() {
-        //         // Callback for when the notification is clicked.
-        //         console.log(this);
-        //     }
-        // });
-        // Notification.requestPermission().then(res=>{
-        //     // console.log(res)
-        //     if (res!="granted"){
-        //         alert("Tienes que dar permiso de Notificacion!")
-        //     }else{
-        //         navigator.geolocation.getCurrentPosition(function () {
-        //             // console.log('si')
-        //             // alert("Te avisara cuando este cerca!")
-        //
-        //         }, function(error){
-        //             // console.log('no')
-        //             alert("Tienes que dar permiso de Ubicacion")
-        //         });
-        //     }
-        // });
-
-        e.preventDefault();
-    });
+    // $('#avisa').click(function (e) {
+    //
+    //     Notification.requestPermission().then(function(result) {
+    //         // console.log(result);
+    //     });
+    //     var options = {
+    //         body: 'aa',
+    //     }
+    //
+    //     var n = new Notification('Emogotchi says',options);
+    //     setTimeout(n.close.bind(n), 5000);
+    //     // navigator.vibrate(1000);
+    //     // Push.Permission.request();
+    //     // Push.create('Hi there!', {
+    //     //     body: 'This is a notification.',
+    //     //     icon: '/moto.png',
+    //     //     timeout: 8000,               // Timeout before notification closes automatically.
+    //     //     vibrate: [100, 100, 100],    // An array of vibration pulses for mobile devices.
+    //     //     onClick: function() {
+    //     //         // Callback for when the notification is clicked.
+    //     //         console.log(this);
+    //     //     }
+    //     // });
+    //     // Notification.requestPermission().then(res=>{
+    //     //     // console.log(res)
+    //     //     if (res!="granted"){
+    //     //         alert("Tienes que dar permiso de Notificacion!")
+    //     //     }else{
+    //     //         navigator.geolocation.getCurrentPosition(function () {
+    //     //             // console.log('si')
+    //     //             // alert("Te avisara cuando este cerca!")
+    //     //
+    //     //         }, function(error){
+    //     //             // console.log('no')
+    //     //             alert("Tienes que dar permiso de Ubicacion")
+    //     //         });
+    //     //     }
+    //     // });
+    //
+    //     e.preventDefault();
+    // });
 
 
 </script>
