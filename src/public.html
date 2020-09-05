@@ -65,6 +65,11 @@
         iconUrl: './moto.png',
         iconSize: [35,35]
     });
+
+    var myPoli = L.icon({
+        iconUrl: './poli.png',
+        iconSize: [35,35]
+    });
     var myHome = L.icon({
         iconUrl: './home.png',
         iconSize: [35,35]
@@ -203,16 +208,16 @@
             }
             motor=[];
             for(let i = list.length -1; i >=0 ; i--) {
-                // var newPoint=await new L.marker([list[i].lat,list[i].lng],{icon:myIcon})
-                //     .bindPopup("<b>Repartidor: </b>"+list[i].name)
-                //     .openPopup();
-                // motor.push(newPoint);
-                console.log(list)
-
-                var lamMarker=new L.marker([-17.976961, -67.109801])
-                    .bindPopup("<b>Pedido a nombre de:  aaa</b>")
+                var newPoint=await new L.marker([list[i].lat,list[i].lng],{icon:myPoli})
+                    .bindPopup("<b>Repartidor: </b>"+list[i].name)
                     .openPopup();
-                motor.push(lamMarker);
+                motor.push(newPoint);
+                // console.log(list)
+                //
+                // var lamMarker=new L.marker([-17.976961, -67.109801])
+                //     .bindPopup("<b>Pedido a nombre de:  aaa</b>")
+                //     .openPopup();
+                // motor.push(lamMarker);
 
                 // var distance = await map.distance([milat,milng] ,[list[i].lat,list[i].lng]);
                 // console.log(distance);
