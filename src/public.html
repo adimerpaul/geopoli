@@ -41,9 +41,9 @@
 
 <div id="map" ></div>
 
-<div id="datos">
-    <button class="btn btn-info " id="avisa">Avisarme!</button>
-</div>
+<!--<div id="datos">-->
+<!--    <button class="btn btn-info " id="avisa">Avisarme!</button>-->
+<!--</div>-->
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -53,7 +53,7 @@
 
 <script>
     var socket = io();
-    var map = L.map('map').setView([-17.976961, -67.109801], 14);
+    var map = L.map('map').setView([-17.976961, -67.109801], 14.5);
     $('#exampleModal').on('shown.bs.modal', function () {
         $('#name').trigger('focus')
     })
@@ -193,7 +193,7 @@
     var myVar = setInterval(myTimer ,2000);
     async function myTimer() {
         // var d = new Date();
-        console.log(list);
+        // console.log(list);
             count++;
             // alert(list.length);
             // if (count > 15) { count = 1; }
@@ -207,7 +207,7 @@
                     .bindPopup("<b>Repartidor: </b>"+list[i].name)
                     .openPopup();
                 motor.push(newPoint);
-                var distance = await map.distance([milat,milng] ,[list[i].lat,list[i].lng]);
+                // var distance = await map.distance([milat,milng] ,[list[i].lat,list[i].lng]);
                 // console.log(distance);
                 // if (boolmsg==false && distance<=200){
                 //     var title = "TU PEPIDO "
