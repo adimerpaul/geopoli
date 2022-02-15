@@ -21,6 +21,9 @@ app.get('/adminpro', function(req, res){
 app.get('/chat', function(req, res){
     res.sendFile(__dirname + '/chat.html');
 });
+app.get('/socket/chat', function(req, res){
+    res.sendFile(__dirname + '/chat.html');
+});
 
 io.on('connection', async (socket) => {
     let messages = await Pedido.find({estado:'ACTIVO'}).sort('-created');
