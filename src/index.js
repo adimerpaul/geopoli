@@ -5,7 +5,7 @@ var app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var path=require('path');
-require('./database');
+// require('./database');
 app.set('port', process.env.PORT || 3000);
 app.use(cors());
 app.use(express.urlencoded({extended:false}));
@@ -21,32 +21,32 @@ app.get('/adminpro', function(req, res){
 app.get('/chat', function(req, res){
     res.sendFile(__dirname + '/chat.html');
 });
-app.get('/socket/chat', function(req, res){
-    res.sendFile(__dirname + '/chat.html');
-});
-
+io.on('connection',(socket)=>{
+    console.log('newuser')
+})
 io.on('connection', async (socket) => {
-    let messages = await Pedido.find({estado:'ACTIVO'}).sort('-created');
-    socket.emit('load old msgs', messages);
-
-    socket.on('pedido', async function(dat){
-        var newPedido = new Pedido({
-            lat: dat.lat,
-            lng: dat.lng,
-            name: dat.name,
-            estado:'ACTIVO'
-        });
-        await newPedido.save();
-        let messages = await Pedido.find({estado:'ACTIVO'}).sort('-created');
-        io.emit('Places', messages);
-    });
-    socket.on('eliminar',async (dat)=> {
-        await  Pedido.updateOne({_id:dat.id}, {estado:"INACTIVO"});
-        let messages = await Pedido.find({estado:'ACTIVO'}).sort('-created');
-        io.emit('Places', messages);
-    });
-    socket.on('chat message', (msg) => {
-        io.emit('chat message', msg);
+    // let messages = await Pedido.find({estado:'ACTIVO'}).sort('-created');
+    // socket.emit('load old msgs', messages);
+    //
+    // socket.on('pedido', async function(dat){
+    //     var newPedido = new Pedido({
+    //         lat: dat.lat,
+    //         lng: dat.lng,
+    //         name: dat.name,
+    //         estado:'ACTIVO'
+    //     });
+    //     await newPedido.save();
+    //     let messages = await Pedido.find({estado:'ACTIVO'}).sort('-created');
+    //     io.emit('Places', messages);
+    // });
+    // socket.on('eliminar',async (dat)=> {
+    //     await  Pedido.updateOne({_id:dat.id}, {estado:"INACTIVO"});
+    //     let messages = await Pedido.find({estado:'ACTIVO'}).sort('-created');
+    //     io.emit('Places', messages);
+    // });
+    socket.on('chatmessage', (msg) => {
+        // console.log(msg)
+        io.emit('chatmessage', msg);
     });
 });
 http.listen(app.get('port'), function(){
