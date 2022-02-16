@@ -24,31 +24,7 @@ app.get('/chat', function(req, res){
 io.on('connection',(socket)=>{
     console.log('newuser')
 })
-io.on('connection', async (socket) => {
-    // let messages = await Pedido.find({estado:'ACTIVO'}).sort('-created');
-    // socket.emit('load old msgs', messages);
-    //
-    // socket.on('pedido', async function(dat){
-    //     var newPedido = new Pedido({
-    //         lat: dat.lat,
-    //         lng: dat.lng,
-    //         name: dat.name,
-    //         estado:'ACTIVO'
-    //     });
-    //     await newPedido.save();
-    //     let messages = await Pedido.find({estado:'ACTIVO'}).sort('-created');
-    //     io.emit('Places', messages);
-    // });
-    // socket.on('eliminar',async (dat)=> {
-    //     await  Pedido.updateOne({_id:dat.id}, {estado:"INACTIVO"});
-    //     let messages = await Pedido.find({estado:'ACTIVO'}).sort('-created');
-    //     io.emit('Places', messages);
-    // });
-    socket.on('chatmessage', (msg) => {
-        // console.log(msg)
-        io.emit('chatmessage', msg);
-    });
-});
+
 http.listen(app.get('port'), function(){
     console.log('listening on *:'+app.get('port'));
 });
