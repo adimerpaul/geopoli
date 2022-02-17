@@ -23,6 +23,9 @@ app.get('/chat', function(req, res){
 });
 io.on('connection',(socket)=>{
     console.log('newuser')
+    socket.on('chatmessage', (msg) => {
+        io.emit('chatmessage', msg);
+    });
 })
 
 http.listen(app.get('port'), function(){
